@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+</body>
+
+<p>Introduce los primeros enteros separados por comas</p>
+<input type="text" id="ejemplo1">
+<select id="select1">
+
+	<option value="4" selected="">4</option>
+</select>
+<input type="button" value="Agregar" onclick="ejemplo1(document.getElementById('select1').value)">
+<p><input type="button" value="Concatenar" onclick="concatenar()"></p>
+<input type="button" value="Reiniciar" onclick="Reiniciar()">
+
+<p id="resultado"></p>
+
+<script>
+var array1=[];
+
+function ejemplo1(){
+
+	var num=document.getElementById("select1").value;
+	for(i=0;i<num;i++)
+	{
+		array1.push(parseInt(Math.random()*100));
+	}
+	document.getElementById("ejemplo1").value=array1;
+}
+
+
+var aux=[];
+function concatenar()
+{
+	array1=document.getElementById("ejemplo1").value.split(/,/);
+
+	if (array1.length)
+	{
+	for(i=0;i<array1.length;i++){
+
+		aux.push(array1[i]);
+	}
+}
+	else
+	{
+
+}	
+
+	document.getElementById("resultado").innerHTML=aux;
+}
+
+function Reiniciar(){
+	window.location.href = 'ejercicio3.html'; 
+	//location.reload(); //recargar la página web
+}
+
+</script>
+</html>
